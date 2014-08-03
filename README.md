@@ -8,3 +8,21 @@ Download linuxamd64_12102_database_1of2.zip and linuxamd64_12102_database_2of2.z
 Store these files in a directory that you then map in the Vagrantfile to /software in the guest.
 
 Note: These configuration files are based on the work done by Edwin Biemond and use his Oradb Puppet Module (see https://github.com/biemond/biemond-oradb)
+
+The VM that is created uses 10.10.10.9 as its IP address.
+
+The passwords for sys and system are oracle.
+
+The OS users root and  vagrant have vagrant as password. User oracle has oracle as password.
+
+De Database SID is db12102.
+
+All configuration is done in just a few files:
+
+Vagrantfile
+puppet\hieradata\common.yaml
+puppet\hieradata\db12c.example.com.yaml
+puppet\manifests\db.pp
+
+All other files are reused Puppet modules - largely supplied by Edwin.
+
