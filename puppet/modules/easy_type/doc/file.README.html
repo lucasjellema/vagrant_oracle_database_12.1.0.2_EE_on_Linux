@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><p><a href="https://codeclimate.com/github/hajee/easy_type"><img src="https://codeclimate.com/github/hajee/easy_type.png" alt="Code Climate"></a> <a href="https://travis-ci.org/hajee/easy_type"><img src="https://travis-ci.org/hajee/easy_type.png" alt="Build Status"></a> <a href="https://gemnasium.com/hajee/easy_type"><img src="https://gemnasium.com/hajee/easy_type.png" alt="Dependency Status"></a> <a href="https://coveralls.io/r/hajee/easy_type"><img src="https://coveralls.io/repos/hajee/easy_type/badge.png" alt="Coverage Status"></a></p>
+
+<h1>easy_type</h1>
+
+<p>Robert scratched his head. How would he get a Puppet class to manage a complex resource on his systems? I guess I’ll have to make a Custom Type, he thought. But last time I looked into that, I noticed you need to know a lot about Puppet Internals. </p>
+
+<p>If you recognize this thought process, easy_type is for you. Like the name says, easy type is designed to make it easy to build a Custom Puppet Type. </p>
+
+<h2>Tutorial</h2>
+
+<p>Check <a href="http://hajee.github.io/2014/01/26/puppet-custom-types-the-easy-way/">this blog post</a> for a tutorial on using <code>easy_type</code>.</p>
+
+<h2>Get Started</h2>
+
+<p>To get started, you first need to include <code>easy_type</code> in your <code>Puppetfile</code> or otherwise get it into your puppet directories. To add it to your <code>Puppetfile</code>, you can add the following line:</p>
+
+<pre class="code ruby"><code class="ruby">mod &quot;hajee/easy_type&quot;, “0.x.0”
+</code></pre>
+
+<p>Change the x to the version you would like. You can also use the latest from git.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_mod'>mod</span>  <span class='id identifier rubyid_easy_type'>easy_type</span><span class='comma'>,</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git@github.com:hajee/easy_type.git</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>After that run the librarian to add the right modules to your puppet tree:</p>
+
+<pre class="code sh"><code class="sh">librarian-puppet install
+</code></pre>
+
+<h1>Creating your type</h1>
+
+<p>To create your custom type you will have to create the right directory structure. Go to your module directory and create the next directories:</p>
+
+<pre class="code bash"><code class="bash">mkdir -p module_name/lib
+</code></pre>
+
+<p>To create a good starting point for defining your type, copy the scaffold</p>
+
+<pre class="code sh"><code class="sh">cp -Rv easy_type/scaffold module_name/lib/puppet
+</code></pre>
+
+<p>Start editing the example_type.rb file</p>
+
+<p>Here is it&#39;s content:
+```ruby
+require &#39;easy_type&#39;</p>
+
+<p>module Puppet
+  newtype(:example_type) do
+    include EasyType</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ensurable'>ensurable</span>
+<span class='comment'>#
+</span><span class='comment'># Use set_command to set the base command given on creating, destroying and modifying 
+</span><span class='comment'># the resource. This can either be an existing class method on the example_type, or if 
+</span><span class='comment'># a method doesn't exist, it will translate to an os command given.
+</span><span class='comment'># 
+</span><span class='comment'># Example: 
+</span><span class='comment'>#   def self.an_existing_class_method(commmand_string)
+</span><span class='comment'>#     # DO some important stuff
+</span><span class='comment'>#   end
+</span><span class='comment'>#
+</span><span class='comment'># set_command(:an_existing_class_method)
+</span><span class='comment'># 
+</span><span class='comment'>#
+</span><span class='id identifier rubyid_set_command'>set_command</span><span class='lparen'>(</span><span class='symbol'>:just_a_method</span><span class='rparen'>)</span>
+
+
+
+<span class='id identifier rubyid_to_get_raw_resources'>to_get_raw_resources</span> <span class='kw'>do</span>
+  <span class='comment'>#
+</span>  <span class='comment'># to_get_raw_resources
+</span>  <span class='comment'># =====================
+</span>  <span class='comment'># Fill in the code needed to get an array of resources. The array must contain Hashes
+</span>  <span class='comment'># the Hash can have arbitrary elements. The Hash will be 'picked' by the `to_translate_to_resource`.
+</span>  <span class='comment'># See the definition of `to_translate_to_resource` in either the parameter or property definition.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Although technically not necessary, it is logical to use the defined command. (See set_command)
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'>#
+</span>  <span class='comment'># to_get_raw_resources do
+</span>  <span class='comment'>#   packages_string = rpm('-qa','--qf','%{NAME}, %{VERSION}-%{RELEASE}\n')
+</span>  <span class='comment'>#   convert_csv_data_to_hash(packages_string,[:name, :version])
+</span>  <span class='comment'># end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># The convert_csv_data_to_hash, is a helper. Like the name says, it converts a comma separated string 
+</span>  <span class='comment'># to a Hash, The second argument is an Array that contains the elements of the hash. If your string 
+</span>  <span class='comment'># a header as the first line, you can pass nil for the header Array.
+</span>  <span class='comment'>#
+</span><span class='kw'>end</span>
+
+<span class='id identifier rubyid_on_create'>on_create</span> <span class='kw'>do</span>
+  <span class='comment'>#
+</span>  <span class='comment'># on_create
+</span>  <span class='comment'># =========
+</span>  <span class='comment'># When Puppet signals it needs to create the resource, it will call this method. The return value of 
+</span>  <span class='comment'># this method is appended to the command given in set_command
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'># 
+</span>  <span class='comment'># do_command(:sql)
+</span>  <span class='comment'>#
+</span>  <span class='comment'># on_create do
+</span>  <span class='comment'>#    &quot;create user #{self[:name]}&quot;
+</span>  <span class='comment'># end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Explanation:
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'># When Puppet needs to create the resource, the sql method is called with parameter &quot;create user username&quot;
+</span>  <span class='comment'># The `on_create` method will be called in the context of a `provider`. This means you can reference the current
+</span>  <span class='comment'># resource through `self`.
+</span>  <span class='comment'># 
+</span>  <span class='comment'># Property information
+</span>  <span class='comment'># ------------------------------
+</span>  <span class='comment'># If you have defined an `on_apply` method in any property or parameter, it's return value will be 
+</span>  <span class='comment'># appended to the base `on_create` command. See the description of `on_apply` at the type or the property
+</span>  <span class='comment'>#
+</span>  <span class='comment'>#
+</span><span class='kw'>end</span>
+
+<span class='id identifier rubyid_on_modify'>on_modify</span> <span class='kw'>do</span>
+  <span class='comment'>#
+</span>  <span class='comment'># on_modify
+</span>  <span class='comment'># =========
+</span>  <span class='comment'># When Puppet signals it needs to modify the resource, it will call this method. The return value of 
+</span>  <span class='comment'># this method is appended to the command given in set_command
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'># 
+</span>  <span class='comment'># do_command(:sql)
+</span>  <span class='comment'>#
+</span>  <span class='comment'># on_modify do
+</span>  <span class='comment'>#    &quot;alter user #{self[:name]}&quot;
+</span>  <span class='comment'># end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'># When Puppet needs to modify the resource, the sql method is called with parameter &quot;alter user username&quot;
+</span>  <span class='comment'># The `on_modify` method will be called in the context of a `provider`. This means you can reference the current
+</span>  <span class='comment'># resource through `self`.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Property information
+</span>  <span class='comment'># ---------------------
+</span>  <span class='comment'># If you have defined an `on_apply` method in any property or parameter, it's return value will be 
+</span>  <span class='comment'># appended to the base `on_modify` command. See the description of `on_apply` at the type or the property
+</span>  <span class='comment'>#
+</span>  <span class='comment'>#
+</span><span class='kw'>end</span>
+
+<span class='id identifier rubyid_on_destroy'>on_destroy</span> <span class='kw'>do</span>
+  <span class='comment'>#
+</span>  <span class='comment'># on_destroy
+</span>  <span class='comment'># ==========
+</span>  <span class='comment'># When Puppet signals it needs to destroy the resource, it will call this method. The return value of 
+</span>  <span class='comment'># this method is appended to the command given in set_command
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'># 
+</span>  <span class='comment'># do_command(:sql)
+</span>  <span class='comment'>#
+</span>  <span class='comment'># on_destroy do
+</span>  <span class='comment'>#    &quot;drop user #{self[:name]}&quot;
+</span>  <span class='comment'># end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># -----------
+</span>  <span class='comment'># When Puppet needs to destroy the resource, the sql method is called with parameter &quot;drop user username&quot;
+</span>  <span class='comment'># The `on_dstroy` method will be called in the context of a `provider`. This means you can reference the current
+</span>  <span class='comment'># resource through `self`.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Property information
+</span>  <span class='comment'># --------------------
+</span>  <span class='comment'># in contrast to `on_create` and `on_modify`, no `on_apply` methods are called on any of the types
+</span>  <span class='comment'>#
+</span>  <span class='comment'>#
+</span><span class='kw'>end</span>
+
+<span class='id identifier rubyid_newparam'>newparam</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'>EasyType</span>
+  <span class='comment'>#
+</span>  <span class='comment'># newparam
+</span>  <span class='comment'># ==========
+</span>  <span class='comment'># To define a parameter, use the regular newparam(:parameter_name). 
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Mungers
+</span>  <span class='comment'># =======
+</span>  <span class='comment'># If your parameter needs munging, you can include the necessary mungers. Check the documentation 
+</span>  <span class='comment'># of the Mungers to see which mungers are available
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># include EasyType::Mungers::Upcase   # Check easy_type/validators for available mungers
+</span>  <span class='comment'># 
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># -----------
+</span>  <span class='comment'># This will include the Upcase munger. This will change any input in the Puppet Manifest
+</span>  <span class='comment'># to an Uppercase value before comparing it with the actual value.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Validators
+</span>  <span class='comment'># ==========
+</span>  <span class='comment'># If your parameter needs validation, you can include the necessary validator. Check the documentation 
+</span>  <span class='comment'># of the Validators to see which validators are available
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># include EasyType::Validators::Name  # Check easy_type/validators for available validators
+</span>  <span class='comment'># 
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># -----------
+</span>  <span class='comment'># This will check if the content of the parameter is a valid name.
+</span>
+
+  <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Give you desciption of the parameter</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_isnamevar'>isnamevar</span>
+
+  <span class='id identifier rubyid_to_translate_to_resource'>to_translate_to_resource</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='id identifier rubyid_raw_resource'>raw_resource</span><span class='op'>|</span>
+    <span class='comment'>#raw_resource.column_data('FILL_YOUR_PARAMETER_KEY_HERE')
+</span>  <span class='kw'>end</span>
+
+  <span class='comment'>#
+</span>  <span class='comment'># to_translate_to_resource
+</span>  <span class='comment'># ========================
+</span>  <span class='comment'># Use this method to pick a part for the raw_resource hash. and translate it to the real resource hash
+</span>  <span class='comment'># If you have used the `convert_csv_data_to_hash` method to create the Hash, you can use the 
+</span>  <span class='comment'># `column_data` method to pick the right element from the Hash. `column_data` will show an error 
+</span>  <span class='comment'># when the data is not available in the Hash.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># to_translate_to_resource do | raw_resource|
+</span>  <span class='comment'>#   raw_resource.column_data('USERNAME').upcase
+</span>  <span class='comment'># end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Explanation:
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># This will extract the `USERNAME` from the `raw_resource` Hash and translate it to an uppercase 
+</span>  <span class='comment'># value. let's say, the Hash contains {'USERNAME` =&gt; 'micky_mouse`}. This would lead to the 
+</span>  <span class='comment'># following Puppet Resource
+</span>  <span class='comment'>#
+</span>  <span class='comment'># example_type{micky_mouse: ensure =&gt; present,}
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Tricky stuff
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'># Check what the keys of the Hash are. There **is** a difference between 'key', 'KEY', :KEY and :key 
+</span>  <span class='comment'>#
+</span><span class='kw'>end</span>
+
+
+<span class='comment'>#
+</span><span class='comment'># parameter
+</span><span class='comment'># ==========
+</span><span class='comment'># You can also use a shortcut:
+</span><span class='comment'>#
+</span><span class='comment'># Example:
+</span><span class='comment'># --------
+</span><span class='comment'>#   parameter :parameter_name
+</span><span class='comment'>#
+</span><span class='comment'># Explanation
+</span><span class='comment'># -----------
+</span><span class='comment'># In this case, easy_type looks for a file 
+</span><span class='comment'># `module_name\lib\puppet\type\type_name\parameter_name.rb`
+</span><span class='comment'># This file *MUST* contain the full parameter definition
+</span><span class='comment'>#
+</span><span class='id identifier rubyid_parameter'>parameter</span> <span class='symbol'>:just_an_other_parameter</span>
+
+<span class='id identifier rubyid_newproperty'>newproperty</span><span class='lparen'>(</span><span class='symbol'>:your_property</span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'>EasyType</span>
+  <span class='comment'>#
+</span>  <span class='comment'># newproperty
+</span>  <span class='comment'># ==========
+</span>  <span class='comment'># To define a property, use the regular newproperty(:property_name). 
+</span>  <span class='comment'>#
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Mungers
+</span>  <span class='comment'># =======
+</span>  <span class='comment'># If your property needs munging, you can include the necessary mungers. Check the documentation 
+</span>  <span class='comment'># of the Mungers to see which mungers are available
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># include EasyType::Mungers::Upcase   # Check easy_type/validators for available mungers
+</span>  <span class='comment'># 
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># -----------
+</span>  <span class='comment'># This will include the Upcase munger. This will change any input in the Puppet Manifest
+</span>  <span class='comment'># to an Uppercase value before comparing it with the actual value.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Validators
+</span>  <span class='comment'># ==========
+</span>  <span class='comment'># If your property needs validation, you can include the necessary validator. Check the documentation 
+</span>  <span class='comment'># of the Validators to see which validators are available
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># include EasyType::Validators::Name  # Check easy_type/validators for available validators
+</span>  <span class='comment'># 
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># -----------
+</span>  <span class='comment'># This will check if the content of the property is a valid name.
+</span>
+  <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Give your desciption of the property</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='comment'>#
+</span>  <span class='comment'># to_translate_to_resource
+</span>  <span class='comment'># ========================
+</span>  <span class='comment'># Use this method to pick a part for the raw_resource hash. and translate it to the real resource hash
+</span>  <span class='comment'># If you have used the `convert_csv_data_to_hash` method to create the Hash, you can use the 
+</span>  <span class='comment'># `column_data` method to pick the right element from the Hash. `column_data` will show an error 
+</span>  <span class='comment'># when the data is not available in the Hash.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># to_translate_to_resource do | raw_resource|
+</span>  <span class='comment'>#   raw_resource.column_data('USERNAME').upcase
+</span>  <span class='comment'># end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Explanation:
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'>#
+</span>  <span class='comment'># This will extract the `USERNAME` from the `raw_resource` Hash and translate it to an uppercase 
+</span>  <span class='comment'># value. let's say, the Hash contains {'USERNAME` =&gt; 'micky_mouse`}. This would lead to the 
+</span>  <span class='comment'># follwoing Puppet Resource
+</span>  <span class='comment'>#
+</span>  <span class='comment'># example_type{micky_mouse: ensure =&gt; present,}
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Tricky stuff
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'># Check what the keys of the Hash are. There **is** a difference between 'key', 'KEY', :KEY and :key 
+</span>  <span class='comment'>#
+</span>  <span class='id identifier rubyid_to_translate_to_resource'>to_translate_to_resource</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='id identifier rubyid_raw_resource'>raw_resource</span><span class='op'>|</span>
+    <span class='comment'>#raw_resource.column_data('FILL_YOUR_PROPERTY_KEY_HERE')
+</span>  <span class='kw'>end</span>
+
+
+  <span class='comment'>#
+</span>  <span class='comment'># on_apply
+</span>  <span class='comment'># ========
+</span>  <span class='comment'># When Puppet signals it needs to create or modify the resource, it will call this method for every modified
+</span>  <span class='comment'># property. It will then append the return value to the existing string from ether `on_create` or `on_modify`
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Example:
+</span>  <span class='comment'># --------
+</span>  <span class='comment'># in the type
+</span>  <span class='comment'># 
+</span>  <span class='comment'>#  on_command(:data_source)
+</span>  <span class='comment'>#
+</span>  <span class='comment'>#  on_modify do
+</span>  <span class='comment'>#    &quot;alter #{self[:name]}&quot;
+</span>  <span class='comment'>#  end
+</span>  <span class='comment'>#    
+</span>  <span class='comment'># 
+</span>  <span class='comment'>#  in the property
+</span>  <span class='comment'>#
+</span>  <span class='comment'>#  on_apply do | command_builder |
+</span>  <span class='comment'>#    &quot;set destination #{resource[:destination]} &quot;
+</span>  <span class='comment'>#  end
+</span>  <span class='comment'>#
+</span>  <span class='comment'># Explanation
+</span>  <span class='comment'># ------------
+</span>  <span class='comment'># When Puppet needs to modify the resource, the `data_source` method is called with parameter &quot;alter my_name&quot;
+</span>  <span class='comment'># The `on_apply` method will append the text &quot;set destination /dev/null&quot; to the string.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># While the `on_create`, `on_destroy` and `on_modify` methods are called in the context of the
+</span>  <span class='comment'># provider, the `on_apply` method is called in the context of the property.
+</span>  <span class='comment'>#
+</span>  <span class='id identifier rubyid_on_apply'>on_apply</span> <span class='kw'>do</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>add_your_on_apply_information_for_this_property</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_property'>property</span> <span class='symbol'>:just_an_other_property</span>
+<span class='comment'># property
+</span><span class='comment'># ==========
+</span><span class='comment'># You can also use a shortcut:
+</span><span class='comment'>#
+</span><span class='comment'># Example:
+</span><span class='comment'># --------
+</span><span class='comment'>#   property :property_name
+</span><span class='comment'>#
+</span><span class='comment'># Explanation
+</span><span class='comment'># -----------
+</span><span class='comment'># In this case, easy_type looks for a file 
+</span><span class='comment'># `module_name\lib\puppet\type\type_name\property_name.rb`
+</span><span class='comment'># This file *MUST* contain the full property definition
+</span><span class='comment'>#
+</span>
+<span class='id identifier rubyid_group'>group</span><span class='lparen'>(</span><span class='symbol'>:group_name</span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='comment'># property :first_in_group
+</span>  <span class='comment'># property :second_in_group
+</span><span class='kw'>end</span>
+<span class='comment'>#
+</span><span class='comment'># group
+</span><span class='comment'># =====
+</span><span class='comment'>#
+</span><span class='comment'># Sometimes to get your modify statement correct for a resource, you need to include more parts
+</span><span class='comment'># of the resource. If you define a group of properties, you tell easy_type. To always include all
+</span><span class='comment'># properties in the group if any of them is changed.
+</span><span class='comment'>#
+</span><span class='comment'># Example:
+</span><span class='comment'># --------
+</span><span class='comment'># group(:group_name) do
+</span><span class='comment'>#   property :first_in_group
+</span><span class='comment'>#   property :second_in_group
+</span><span class='comment'># end
+</span><span class='comment'>#
+</span><span class='comment'># Explanation:
+</span><span class='comment'># ------------
+</span><span class='comment'># if Puppet signals property `first_in_group` is modified, the command will include the return values of 
+</span><span class='comment'># the `on_apply` for both properties. 
+</span><span class='comment'>#
+</span><span class='comment'># Tricky stuff
+</span><span class='comment'># ------------
+</span><span class='comment'># When you want to use a group, you **CANNOT** use inline (e.g. newproperty do), but you **MUST** 
+</span><span class='comment'># use the property definition in the fiCheck what the keys of the Hash are. There **is** a difference between 'key', 'KEY', :KEY and :key 
+</span><span class='comment'>#
+</span><span class='comment'>#
+</span></code></pre>
+
+<p>end
+end</p>
+
+<pre class="code ruby"><code class="ruby">
+License
+-------
+
+MIT License
+
+
+Contact
+-------
+Bert Hajee hajee@moretIA.com
+
+Support
+-------
+Please log tickets and issues at our [Projects site](https://github.com/hajee/easy_type)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hajee/easy_type/trend.png)](https://bitdeli.com/free &quot;Bitdeli Badge&quot;)
+</code></pre>
+</div></div>
+
+    <div id="footer">
+  Generated on Thu Jan 30 22:38:55 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: EasyType::Provider::ClassMethods
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../EasyType.html" title="EasyType (module)">EasyType</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Provider.html" title="EasyType::Provider (module)">Provider</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: EasyType::Provider::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/easy_type/provider.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#instances-instance_method" title="#instances (instance method)">- (Array) <strong>instances</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieve the raw_resource information by calling the`get_raw_resources`
+method on the Type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mk_resource_methods-instance_method" title="#mk_resource_methods (instance method)">- (Object) <strong>mk_resource_methods</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>define a getter and a setter method for evert specified parameter and
+property in the type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prefetch-instance_method" title="#prefetch (instance method)">- (Array) <strong>prefetch</strong>(resources) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prefetch all information of the specified resource.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="instances-instance_method">
+  
+    - (<tt>Array</tt>) <strong>instances</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieve the raw_resource information by calling the`get_raw_resources`
+method on the Type. Map every element of this Array to a Puppet resource.
+and return this mapped Array</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Mapped Array of resources</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Puppet::Error</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>When `get_raw_resources` is not defined on the type.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/provider.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_instances'>instances</span>
+  <span class='id identifier rubyid_fail'>fail</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>information: to_get_raw_resources not defined on type </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resource_type'>resource_type</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_resource_type'>resource_type</span><span class='period'>.</span><span class='id identifier rubyid_get_raw_resources'>get_raw_resources</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raw_resources'>raw_resources</span> <span class='op'>=</span> <span class='id identifier rubyid_resource_type'>resource_type</span><span class='period'>.</span><span class='id identifier rubyid_get_raw_resources'>get_raw_resources</span>
+  <span class='id identifier rubyid_raw_resources'>raw_resources</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_raw_resource'>raw_resource</span><span class='op'>|</span>
+    <span class='id identifier rubyid_map_raw_to_resource'>map_raw_to_resource</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_resource'>raw_resource</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mk_resource_methods-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mk_resource_methods</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>define a getter and a setter method for evert specified parameter and
+property in the type. Define the setter so it modifies the property_hash
+and the property_flush based on what the  other provider methods expect.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Puppet::Error</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/provider.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mk_resource_methods'>mk_resource_methods</span>
+  <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_resource_type'>resource_type</span><span class='period'>.</span><span class='id identifier rubyid_validproperties'>validproperties</span><span class='comma'>,</span> <span class='id identifier rubyid_resource_type'>resource_type</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Puppet</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>no parameters or properties defined. Probably an error</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>==</span> <span class='lbracket'>[</span><span class='symbol'>:provider</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_attr'>attr</span><span class='op'>|</span>
+    <span class='id identifier rubyid_attr'>attr</span> <span class='op'>=</span> <span class='id identifier rubyid_attr'>attr</span><span class='period'>.</span><span class='id identifier rubyid_intern'>intern</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_attr'>attr</span> <span class='op'>==</span> <span class='symbol'>:name</span>
+    <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='id identifier rubyid_attr'>attr</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='ivar'>@property_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_attr'>attr</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:absent</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='id identifier rubyid_attr'>attr</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+      <span class='ivar'>@property_flush</span><span class='lbracket'>[</span><span class='id identifier rubyid_attr'>attr</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="prefetch-instance_method">
+  
+    - (<tt>Array</tt>) <strong>prefetch</strong>(resources) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Prefetch all information of the specified resource. Because we already have
+everything in the inatnces array, we just have to set the provider</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>of Puppet Resources</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/provider.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prefetch'>prefetch</span><span class='lparen'>(</span><span class='id identifier rubyid_resources'>resources</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_objects'>objects</span> <span class='op'>=</span> <span class='id identifier rubyid_instances'>instances</span>
+  <span class='id identifier rubyid_resources'>resources</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_provider'>provider</span> <span class='op'>=</span> <span class='id identifier rubyid_objects'>objects</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_object'>object</span><span class='op'>|</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span> 
+      <span class='id identifier rubyid_resources'>resources</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_provider'>provider</span> <span class='op'>=</span> <span class='id identifier rubyid_provider'>provider</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Jan 30 22:38:56 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

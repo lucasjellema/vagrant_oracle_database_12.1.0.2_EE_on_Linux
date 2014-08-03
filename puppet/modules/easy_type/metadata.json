@@ -1,0 +1,14 @@
+{
+  "name": "hajee-easy_type",
+  "version": "0.9.0",
+  "author": "Bert Hajee",
+  "summary": "An easy way to build a custom puppet resource",
+  "license": "Apache License, Version 2.0",
+  "source": "http:/www.github.com/hajee/easy_type",
+  "project_page": null,
+  "issues_url": null,
+  "description": "An easy way to build a complex custom puppet resource",
+  "dependencies": [
+  
+  ]
+}

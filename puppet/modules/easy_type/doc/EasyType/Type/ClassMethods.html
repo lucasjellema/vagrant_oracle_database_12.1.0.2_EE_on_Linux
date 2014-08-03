@@ -1,0 +1,1012 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: EasyType::Type::ClassMethods
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../EasyType.html" title="EasyType (module)">EasyType</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Type.html" title="EasyType::Type (module)">Type</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: EasyType::Type::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/easy_type/type.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define_os_command_method-instance_method" title="#define_os_command_method (instance method)">- (Object) <strong>define_os_command_method</strong>(method_or_command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group-instance_method" title="#group (instance method)">- (Group) <strong>group</strong>(group_name = :default, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>define a group of parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#groups-instance_method" title="#groups (instance method)">- (Group) <strong>groups</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the groups the type contains.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_create-instance_method" title="#on_create (instance method)">- (Object) <strong>on_create</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>end.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_destroy-instance_method" title="#on_destroy (instance method)">- (Object) <strong>on_destroy</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>end.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_modify-instance_method" title="#on_modify (instance method)">- (Object) <strong>on_modify</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>end.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parameter-instance_method" title="#parameter (instance method)">- (Object) <strong>parameter</strong>(parameter_name) </a>
+    
+
+    
+      (also: #property)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#process_group_entry-instance_method" title="#process_group_entry (instance method)">- (Object) <strong>process_group_entry</strong>(entry) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_command-instance_method" title="#set_command (instance method)">- (Object) <strong>set_command</strong>(method_or_command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_get_raw_resources-instance_method" title="#to_get_raw_resources (instance method)">- (Object) <strong>to_get_raw_resources</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>end.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="define_os_command_method-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define_os_command_method</strong>(method_or_command) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 116</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define_os_command_method'>define_os_command_method</span><span class='lparen'>(</span><span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_eigenclass'>eigenclass</span> <span class='op'>=</span> <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+	<span class='id identifier rubyid_eigenclass'>eigenclass</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='op'>|</span>
+		<span class='id identifier rubyid_command'>command</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span><span class='lparen'>(</span><span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='rparen'>)</span> 
+		<span class='const'>Puppet</span><span class='op'>::</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Execution</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="group-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Group.html" title="EasyType::Group (class)">Group</a></span></tt>) <strong>group</strong>(group_name = :default, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>define a group of parameters. A group means a change in one of it's members
+all the information in the group is added tot  the command</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_group'>group</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='comment'># name is optional
+</span>	<span class='id identifier rubyid_property'>property</span> <span class='symbol'>:a</span>
+	<span class='id identifier rubyid_property'>property</span> <span class='symbol'>:b</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>group_name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:default</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the group name to use. A group name must be unique within a type</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Group.html" title="EasyType::Group (class)">Group</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the defined group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_group'>group</span><span class='lparen'>(</span><span class='id identifier rubyid_group_name'>group_name</span> <span class='op'>=</span> <span class='symbol'>:default</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_include'>include</span> <span class='const'>EasyType</span><span class='op'>::</span><span class='const'>FileIncluder</span>
+
+  <span class='ivar'>@group_name</span> <span class='op'>=</span> <span class='id identifier rubyid_group_name'>group_name</span> <span class='comment'># make it global
+</span>	<span class='ivar'>@groups</span> <span class='op'>||=</span> <span class='const'>EasyType</span><span class='op'>::</span><span class='const'>Group</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+
+	<span class='kw'>alias</span> <span class='symbol'>:orig_parameter</span> <span class='symbol'>:parameter</span>
+	<span class='kw'>alias</span> <span class='symbol'>:orig_property</span> <span class='symbol'>:property</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_parameter'>parameter</span><span class='lparen'>(</span><span class='id identifier rubyid_parameter_name'>parameter_name</span><span class='rparen'>)</span>
+  	<span class='id identifier rubyid_process_group_entry'>process_group_entry</span><span class='lparen'>(</span><span class='id identifier rubyid_include_file'>include_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet/type/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_parameter_name'>parameter_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_property'>property</span><span class='lparen'>(</span><span class='id identifier rubyid_property_name'>property_name</span><span class='rparen'>)</span>
+  	<span class='id identifier rubyid_process_group_entry'>process_group_entry</span><span class='lparen'>(</span><span class='id identifier rubyid_include_file'>include_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet/type/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_property_name'>property_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_process_group_entry'>process_group_entry</span><span class='lparen'>(</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+  	<span class='ivar'>@groups</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+	<span class='kw'>yield</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
+
+	<span class='kw'>alias</span> <span class='symbol'>:parameter</span> <span class='symbol'>:orig_parameter</span>
+	<span class='kw'>alias</span> <span class='symbol'>:property</span> <span class='symbol'>:orig_property</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="groups-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Group.html" title="EasyType::Group (class)">Group</a></span></tt>) <strong>groups</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the groups the type contains</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Group.html" title="EasyType::Group (class)">Group</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>All defined groups</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_groups'>groups</span>
+	<span class='ivar'>@groups</span> <span class='op'>||=</span> <span class='const'>EasyType</span><span class='op'>::</span><span class='const'>Group</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+	<span class='ivar'>@groups</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>on_create</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>end</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block</span>
+      
+      
+        <span class='type'>(<tt>Method</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The code to be run on creating  a resource. Although the code customary
+returns just a string that is appended to the command, it can do anything
+that is deemed nesceccary.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 138</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_create'>on_create</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:on_create</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_destroy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>on_destroy</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>end</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block</span>
+      
+      
+        <span class='type'>(<tt>Method</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The code to be run on destroying  a resource. Although the code customary
+returns just a string that is appended to the command, it can do anything
+that is deemed nesceccary.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+156
+157
+158</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 156</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_destroy'>on_destroy</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:on_destroy</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_modify-instance_method">
+  
+    - (<tt>Object</tt>) <strong>on_modify</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>end</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block</span>
+      
+      
+        <span class='type'>(<tt>Method</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The code to be run on modifying  a resource. Although the code customary
+returns just a string that is appended to the command, it can do anything
+that is deemed nesceccary.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 174</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_modify'>on_modify</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:on_modify</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parameter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>parameter</strong>(parameter_name) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='property-instance_method'>property</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>parameter_name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the base name of the parameter</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_parameter'>parameter</span><span class='lparen'>(</span><span class='id identifier rubyid_parameter_name'>parameter_name</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_process_group_entry'>process_group_entry</span><span class='lparen'>(</span><span class='id identifier rubyid_include_file'>include_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>puppet/type/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_parameter_name'>parameter_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="process_group_entry-instance_method">
+  
+    - (<tt>Object</tt>) <strong>process_group_entry</strong>(entry) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_process_group_entry'>process_group_entry</span><span class='lparen'>(</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+	<span class='ivar'>@groups</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_command-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_command</strong>(method_or_command) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>method_or_command</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>method or os command name</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_command'>set_command</span><span class='lparen'>(</span><span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_method_or_command'>method_or_command</span> <span class='op'>=</span> <span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='kw'>if</span> <span class='const'>RUBY_VERSION</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.8.7</span><span class='tstring_end'>&quot;</span></span>
+	<span class='kw'>unless</span> <span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_define_os_command_method'>define_os_command_method</span><span class='lparen'>(</span><span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:command</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span> <span class='op'>|</span>
+		<span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_method_or_command'>method_or_command</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_get_raw_resources-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_get_raw_resources</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>end</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block</span>
+      
+      
+        <span class='type'>(<tt>Method</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The code to be run to fetch the raw resource information from the system.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193
+194</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/easy_type/type.rb', line 191</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_get_raw_resources'>to_get_raw_resources</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_eigenclass'>eigenclass</span> <span class='op'>=</span> <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+	<span class='id identifier rubyid_eigenclass'>eigenclass</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='symbol'>:get_raw_resources</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Jan 30 22:38:56 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+
+# LJ note: the ip address listed here should match the IP address assigned to the VM in the Vagrantfile
+hosts:
+  'db12c.example.com':
+    ip:                "10.10.10.9"
+    host_aliases:      'db12c'
+  'localhost':
+    ip:                "127.0.0.1"
+    host_aliases:      'localhost.localdomain,localhost4,localhost4.localdomain4'
+
+# global OS vars
+#wls_os_user:              &wls_os_user              "oracle"
+#wls_os_group:             &wls_os_group             "dba"
+#wls_download_dir:         &wls_download_dir         "/var/tmp/install"
+#wls_source:               &wls_source               "/software"
+#wls_jdk_home_dir:         &wls_jdk_home_dir         "/usr/java/latest"
+#wls_log_dir:              &wls_log_dir              "/var/log/weblogic"
+
+
+

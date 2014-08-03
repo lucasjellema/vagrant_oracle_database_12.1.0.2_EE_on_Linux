@@ -1,0 +1,20 @@
+---
+
+# global oracle vars
+oracle_base_dir:          '/oracle'
+oracle_home_dir:          '/oracle/product/12.1/db'
+
+# global OS vars
+oracle_os_user:           "oracle"
+oracle_os_group:          "dba"
+oracle_download_dir:      "/var/tmp/install"
+oracle_source:            "/software"
+
+oracle_database_name:         'db12102'
+oracle_database_domain_name:  'example.com'  
+oracle_database_service_name: 'db12cR1.example.com'
+oracle_database_host:         'db12102.example.com:1521'
+
+oracle_database_sys_password:    'oracle'
+oracle_database_system_password: 'oracle'
+
